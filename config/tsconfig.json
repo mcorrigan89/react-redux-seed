@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "lib": ["es6", "dom"],
+        "noImplicitAny": false,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "baseUrl": "../",
+        "rootDir": "../",
+        "jsx": "react"
+    },
+    "include": [
+        "../src/**/*",
+        "../typings/**/*"
+    ],
+    "exclude": [
+        "../src/**/*.spec.ts",
+        "../node_modules"
+    ]
+}
