@@ -18,7 +18,7 @@ const containerRule = css({
   fontFamily: 'sans-serif',
   width: '100%',
   height: '100%',
-  justifyContent: 'center',
+  justifyContent: 'center'
 });
 
 export const App = () => {

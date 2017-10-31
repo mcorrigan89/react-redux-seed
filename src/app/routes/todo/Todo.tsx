@@ -1,34 +1,40 @@
-import * as React from "react";
-import { css } from "glamor";
+import * as React from 'react';
+import { css } from 'glamor';
 import { reduce } from 'lodash';
 import { uuidv4 } from '../../../utils/guid';
 
-import { COLORS } from "../../../styles/variables";
-import { ITodo } from "./interfaces";
-import { TodoItem } from "./components/TodoItem";
-import { AddTodoItem } from "./components/AddTodoItem";
+import { COLORS } from '../../../styles/variables';
+import { ITodo } from './interfaces';
+import { TodoItem } from './components/TodoItem';
+import { AddTodoItem } from './components/AddTodoItem';
 
-const getColorHash = (seed) => {
-  let hash = reduce(seed, 
-      (hash, ch) => ch.charCodeAt(0) + (hash << 6) + (hash << 16) - hash, 0);
-  
+const getColorHash = seed => {
+  let hash = reduce(
+    seed,
+    (hash, ch) => ch.charCodeAt(0) + (hash << 6) + (hash << 16) - hash,
+    0
+  );
+
   hash = Math.abs(hash);
   const hue = hash % 360,
-      saturation = hash % 25 + 70,
-      lightness = 100 - (hash % 15 + 35);
+    saturation = hash % 25 + 70,
+    lightness = 100 - (hash % 15 + 35);
 
   return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+};
 
-}
+export const themeColor = getColorHash(uuidv4());
 
-const themeColor = getColorHash(uuidv4())
+const todoHeaderRules = (color) => css({
+  color
+})
 
 const todoRules = css({
   padding: '120px',
-  height: "100%",
+  height: '100%',
   backgroundColor: COLORS.BACKGROUND,
-  display: "flex",
-  justifyContent: "center"
+  display: 'flex',
+  justifyContent: 'center'
 });
 
 const todoWrapper = css({
@@ -67,7 +73,7 @@ export class Todo extends React.Component<Props, {}> {
     return (
       <div id="todo" {...todoRules}>
         <div {...todoWrapper}>
-          <div>TODOS!!</div>
+          <div {...todoHeaderRules(themeColor)}>TODOS!!</div>
           {this.displayTodos()}
           <AddTodoItem addTodo={this.props.addTodo} color={themeColor} />
         </div>
