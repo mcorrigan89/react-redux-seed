@@ -15,7 +15,7 @@ import { combineReducers } from 'redux';
 // =================================
 // Top Level Routes/Components
 // =================================
-import { todoReducer, TodoState } from '../app/routes/todo';
+import { todoReducer, ITodoState } from '../app/routes/todo';
 
 /**
  * This is a statically typed global (top level) state tree
@@ -23,7 +23,7 @@ import { todoReducer, TodoState } from '../app/routes/todo';
  *    type safety to a Redux connect function
  */
 export interface RootState {
-  todo: TodoState;
+  todo: ITodoState;
 }
 
 export const rootReducer = combineReducers<RootState>({

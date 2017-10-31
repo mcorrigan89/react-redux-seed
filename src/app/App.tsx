@@ -2,9 +2,11 @@ import * as React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { css } from 'glamor';
 
+import { COLORS } from '../styles/variables';
+
 // Routes
 
-import { Todo } from './routes/todo';
+import { TodoContainer } from './routes/todo';
 
 /**
  * This will be the main entry point into the app and should:
@@ -15,16 +17,17 @@ import { Todo } from './routes/todo';
 const containerRule = css({
   fontFamily: 'sans-serif',
   width: '100%',
-  justifyContent: 'center'
+  height: '100%',
+  justifyContent: 'center',
 });
 
 export const App = () => {
   return (
     <div {...containerRule}>
       <Switch>
-        <Route path="/" exact={true} component={<div>Hello World</div>} />
-        <Route path="/todo" component={Todo} />
-        <Route path="/about" component={<div>About</div>} />
+        <Route path="/" exact={true} component={TodoContainer} />
+        <Route path="/todo" component={TodoContainer} />
+        <Route path="/about" component={TodoContainer} />
       </Switch>
     </div>
   );
