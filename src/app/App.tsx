@@ -5,7 +5,7 @@ import { css } from 'glamor';
 import { COLORS } from '../styles/variables';
 
 // Routes
-
+import { HelloWorld } from './routes/helloworld/Hello';
 import { TodoContainer } from './routes/todo';
 
 /**
@@ -25,7 +25,7 @@ export const App = () => {
   return (
     <div {...containerRule}>
       <Switch>
-        <Route path="/" exact={true} component={TodoContainer} />
+        <Route path="/" exact={true} component={HelloWorld} />
         <Route path="/todo" component={TodoContainer} />
         <Route path="/about" component={TodoContainer} />
       </Switch>
