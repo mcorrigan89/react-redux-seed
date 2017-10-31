@@ -1,3 +1,4 @@
+import './styles/style.scss';
 declare global {
   interface Window {
     setInitialState: (state?: any) => void;
