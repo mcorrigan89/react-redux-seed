@@ -6,9 +6,9 @@ import * as Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-describe('<Hello />', () => {
+describe('<HelloWorld />', () => {
   test('should render App', () => {
-    const component = shallow(<Hello />);
+    const component = shallow(<HelloWorld />);
     expect(component.text()).toBeDefined();
     expect(component.text()).toBe('Hello World!');
   });
